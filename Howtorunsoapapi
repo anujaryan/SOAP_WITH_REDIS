@@ -1,0 +1,148 @@
+1.First Add Wizdler plugin into crome than hit url  this
+http://localhost:8080/ws/students.wsdl
+2.than -> on  right side click  Wizdler box 
+it will show all service 
+
+
+
+
+
+
+
+
+
+
+
+
+1.add record to redis Request:
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <addStudentRequest xmlns="http://localhost:8080/students">
+            <id>3</id>
+            <name>amit</name>
+            <passportNumber >E1234566</passportNumber>
+        </addStudentRequest>
+    </Body>
+</Envelope>
+1.Response should be like that:
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:addStudentResponse xmlns:ns2="http://localhost:8080/students">
+            <ns2:serviceStatus>
+                <ns2:statusCode>SUCCESS</ns2:statusCode>
+                <ns2:message>Content added successfully</ns2:message>
+            </ns2:serviceStatus>
+            <ns2:StudentDetails>
+                <ns2:id>3</ns2:id>
+                <ns2:name>amit</ns2:name>
+                <ns2:passportNumber>E1234566</ns2:passportNumber>
+            </ns2:StudentDetails>
+        </ns2:addStudentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+2.Get all student record REQUEST:
+    <Body>
+        <getAllStudentRequest xmlns="http://localhost:8080/students"/>
+    </Body>
+</Envelope>
+
+Response :
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:getAllStudentsResponse xmlns:ns2="http://localhost:8080/students">
+            <ns2:StudentDetails>
+                <ns2:id>2</ns2:id>
+                <ns2:name>sumit</ns2:name>
+                <ns2:passportNumber>E1234566</ns2:passportNumber>
+            </ns2:StudentDetails>
+            <ns2:StudentDetails>
+                <ns2:id>2</ns2:id>
+                <ns2:name>anuj</ns2:name>
+                <ns2:passportNumber>2331</ns2:passportNumber>
+            </ns2:StudentDetails>
+        </ns2:getAllStudentsResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+3.Student Record by Pass NUMBER Request:
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <StudentByPassNumRequest xmlns="http://localhost:8080/students">
+            <passportNumber>E1234566</passportNumber>
+        </StudentByPassNumRequest>
+    </Body>
+</Envelope>
+
+Reponse:
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:StudentByPassNumResponse xmlns:ns2="http://localhost:8080/students">
+            <ns2:StudentDetails>
+                <ns2:id>3</ns2:id>
+                <ns2:name>amit</ns2:name>
+                <ns2:passportNumber>E1234566</ns2:passportNumber>
+            </ns2:StudentDetails>
+        </ns2:StudentByPassNumResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+4.Delete Request 
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <deleteStudentRequest xmlns="http://localhost:8080/students">
+            <passportNumber>E1234564</passportNumber>
+        </deleteStudentRequest>
+    </Body>
+</Envelope>
+
+Response:
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:deleteStudentResponse xmlns:ns2="http://localhost:8080/students">
+            <ns2:serviceStatus>
+                <ns2:statusCode>SUCCESS</ns2:statusCode>
+                <ns2:message>Content Deleted Successfully</ns2:message>
+            </ns2:serviceStatus>
+        </ns2:deleteStudentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+
+5.Update Student Record Request Format:
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <updateStudentRequest xmlns="http://localhost:8080/students">
+            <StudentDetails>
+                <id>2</id>
+                <name>sumit</name>
+                <passportNumber>E1234566</passportNumber>
+            </StudentDetails>
+        </updateStudentRequest>
+    </Body>
+</Envelope>
+
+Response:
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:updateStudentResponse xmlns:ns2="http://localhost:8080/students">
+            <ns2:serviceStatus>
+                <ns2:statusCode>SUCCESS</ns2:statusCode>
+                <ns2:message>Content updated Successfully</ns2:message>
+            </ns2:serviceStatus>
+        </ns2:updateStudentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

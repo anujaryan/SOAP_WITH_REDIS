@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsaop.org/soap/envelope/">
+
+<SOAP-ENV:Header/>
+
+<SOAP-ENV:Body>
+
+<ns2:GetStudentDetailsResponse xmlns:ns2="http://localhost:8080/students">
+
+<ns2:StudentDetails>
+<ns2:id>1</ns2:id>
+
+<ns2:name>1</ns2:name>
+<ns2:passportNumber>1</ns2:passportNumber>
+
+</ns2:StudentDetails>
+
+
+</ns2:GetStudentDetailsResponse>
+
+
+</SOAP-ENV:Body>
+
+
+
+</SOAP-ENV:Envelope>
